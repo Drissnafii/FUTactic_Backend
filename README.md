@@ -21,4 +21,4 @@ The FUT Champions Backend is built using procedural PHP and MySQLi. It focuses o
 
 ## 👨‍💻 Author
 
-*   **[Me :)](https://github.com/Drissnafii)**
+*   **[Driss Nafii](https://github.com/Drissnafii)**
