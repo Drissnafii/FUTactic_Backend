@@ -1,7 +1,3 @@
-Here’s an enhanced version of your README with emojis for better visual context:
-
----
-
 # ⚽ FUT Champions Backend  
 
 This project is a robust backend system for managing a dynamic and interactive **FUT Champions Ultimate Team** platform, developed using procedural PHP and MySQLi.
