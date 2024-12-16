@@ -60,6 +60,4 @@ php -S localhost:8000
 
 - **📝 FB Sprint 1:**  
     - Example: `FB-123` - 🔍 Implement player search functionality.  
-    - Example: `FB-124` - 🌐 Integrate language switching on the admin panel.  
-
----
+    - Example: `FB-124` - 🌐 Integrate language switching on the admin panel.
