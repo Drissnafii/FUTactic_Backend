@@ -48,12 +48,4 @@ cd FUTactic_Backend
 - Start a local PHP server:  
 ```bash
 php -S localhost:8000
-```  
-
----
-
-## 🗂️ Sprint Tasks Summary  
-
-- **📝 FB Sprint 1:**  
-    - Example: `FB-123` - 🔍 Implement player search functionality.  
-    - Example: `FB-124` - 🌐 Integrate language switching on the admin panel.
+```
