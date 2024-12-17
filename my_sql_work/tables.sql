@@ -1,3 +1,15 @@
+-- creat club table 
+CREATE TABLE clubs(
+	club_id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(100),
+    logo varchar(500)
+);
+-- creat nationalities table 
+CREATE TABLE nationalities(
+	nationality_id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(100),
+    flag varchar(500)
+);
 -- Table of players
 CREATE DATABASE futactic;
 CREATE TABLE Players( 
@@ -5,30 +17,18 @@ CREATE TABLE Players(
     name_pla varchar(50), 
     photo VARCHAR(512),
     position varchar(50), 
-    nationality varchar(200), 
-    flag VARCHAR(512), 
-    club varchar(50), 
-    logo VARCHAR(512), 
+    nationality_id int,
+    club_id int,
     rating INT, 
     pace INT, 
     shooting INT, 
     passing INT, 
     dribbling INT, 
     defending INT, 
-    physical INT 
-);
-
--- creat nationalities table 
-CREATE TABLE nationalities(
-	nationality_id int PRIMARY KEY AUTO_INCREMENT,
-    name_nat varchar(100),
-    flag varchar(500)
+    physical INT ,
+    FOREIGN KEY(club_id) references clubs(club_id),
+    FOREIGN KEY(nationality_id) references nationalities(nationality_id)
 );
 
 
--- creat club table 
-CREATE TABLE clubs(
-	club_id int PRIMARY KEY AUTO_INCREMENT,
-    name_clu varchar(100),
-    logo varchar(500)
-);
+
