@@ -18,3 +18,17 @@ CREATE TABLE Players(
     physical INT 
 );
 
+-- creat nationalities table 
+CREATE TABLE nationalities(
+	nationality_id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(100),
+    flag varchar(500)
+);
+
+
+-- creat club table 
+CREATE TABLE clubs(
+	club_id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(100),
+    logo varchar(500)
+);
