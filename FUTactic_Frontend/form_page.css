@@ -17,7 +17,7 @@ body {
     --text-color: #333;
 }
 
-.navigation {
+/* .navigation {
     background-color: var(--primary-color);
     display: flex;
     justify-content: center;
@@ -33,7 +33,7 @@ body {
 
 .navigation a:hover {
     color: var(--secondary-color);
-}
+} */
 
 .form-container {
     max-width: 600px;

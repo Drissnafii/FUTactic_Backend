@@ -4,13 +4,39 @@
     <meta charset="UTF-8">
     <title>Modifier un Joueur - FUT Champions Ultimate Team</title>
     <link rel="stylesheet" href="edit_page.css">
+    <!-- taildwind  -->
+    <script src="https://cdn.tailwindcss.com"></script>
+<script>
+    module.exports = {
+  theme: {
+    extend: {
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'],
+      },
+    },
+  },
+  variants: {},
+  plugins: [],
+}
+</script>
 </head>
 <body>
-    <div class="navigation">
-        <a href="form_page.php">Ajouter un Joueur</a>
-        <a href="list_page.php">Liste des Joueurs</a>
-        <a href="edit_page.php">Modifier un Joueur</a>
+<div class="bg-[#F2F1E9] flex justify-between items-center py-4 px-6 shadow-sm border-b border-[#E2DDCC]">
+    <div>
+        <a href="form_page.php" class="text-[#BD5D3A] hover:text-opacity-80 transition-colors duration-300 font-medium text-sm px-4 py-2 rounded-md hover:bg-[#E2DDCC]/30">
+            Ajouter un Joueur
+        </a>
+        <a href="list_page.php" class="text-[#BD5D3A] hover:text-opacity-80 transition-colors duration-300 font-medium text-sm px-4 py-2 rounded-md hover:bg-[#E2DDCC]/30">
+            Liste des Joueurs
+        </a>
+        <a href="edit_page.php" class="text-[#BD5D3A] hover:text-opacity-80 transition-colors duration-300 font-medium text-sm px-4 py-2 rounded-md hover:bg-[#E2DDCC]/30">
+            Modifier un Joueur
+        </a>
     </div>
+    <button class="text-[#BD5D3A] bg-[#E2DDCC] px-4 py-2 rounded-md hover:bg-opacity-80 transition-colors duration-300">
+        Table Control
+    </button>
+</div>
     <div class="form-container">
         <div class="player-preview">
             <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="Lionel Messi">
@@ -87,6 +113,13 @@
 
             <button type="submit" class="submit-btn">Mettre à Jour le Joueur</button>
         </form>
+    </div>
+    
+    <!-- back button  -->
+    <div id="logoutButton">
+    <h1 class="text-3xl font-bold underline flex items-center justify-center h-[7vh] bg-gray-200 p-4 hover:text-blue-600 hover:underline transition duration-300 cursor-pointer">
+        User Board
+    </h1>
     </div>
 </body>
 </html>
