@@ -29,11 +29,11 @@
     // establiching connection with DB
     $connection = new mysali($servername, $username, $password, $database)
     if ($connection -> connection_error) {
-        die("conection faild: ". $connection->connection_error);
+        die("connection failed: ". $connection->connection_error);
     }
 
     // read all rows from DB table 
-    $sql = "";
+    $sql = "SELECT * FROM players";
 
     ?>
 
