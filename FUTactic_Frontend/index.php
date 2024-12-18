@@ -7,11 +7,19 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Try includding taildwing.css  -->
+<script src="https://cdn.tailwindcss.com"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
 </head>
 <body>
-  
+<h1 class="text-3xl font-bold underline flex items-center justify-center h-screen bg-gray-200 p-4">
+    Hello Taindwind !
+  </h1>
+
+
   <header id="headerX">
     <nav>
       <div class="logo-container">
@@ -22,11 +30,11 @@
       
           <ul class="nav-links" id="navLinks">
             <li><a href="#players">Players</a>
-              <!-- <ul class="dropdown-content">
+              <ul class="dropdown-content">
                 <li><a href="#squad-builder">New players</a></li>
                 <li><a href="#community-squads">History</a></li>
                 <li><a href="#tactics">Tactics</a></li>
-              </ul></li> -->
+              </ul></li>
             <li>
               <a href="#squad-builder">Squad Builder</a>
             </li>
@@ -37,12 +45,12 @@
               <a href="#squads">Squads</a>
             </li>
             <li>
-              <a href="#market">Market</a>
-              <!-- <ul class="dropdown-content">
-                <li><a href="#promo-squads">Promo Squads</a></li>
-                <li><a href="#fc-pro">FC Pro</a></li>
-                <li><a href="#team-of-the-week">Team of the Week</a></li>
-              </ul> -->
+              <a href="#market">Admin's</a>
+              <ul class="dropdown-content">
+                <li><a href="#promo-squads">Jaki</a></li>
+                <li><a href="#fc-pro">Lonin</a></li>
+                <li><a href="list_page.php">Driss</a></li>
+              </ul>
             </li>
 
           </ul>

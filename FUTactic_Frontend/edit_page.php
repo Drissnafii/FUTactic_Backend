@@ -7,9 +7,9 @@
 </head>
 <body>
     <div class="navigation">
-        <a href="form_page.html">Ajouter un Joueur</a>
-        <a href="list_page.html">Liste des Joueurs</a>
-        <a href="edit_page.html">Modifier un Joueur</a>
+        <a href="form_page.php">Ajouter un Joueur</a>
+        <a href="list_page.php">Liste des Joueurs</a>
+        <a href="edit_page.php">Modifier un Joueur</a>
     </div>
     <div class="form-container">
         <div class="player-preview">
