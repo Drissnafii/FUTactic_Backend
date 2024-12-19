@@ -20,22 +20,6 @@
 </script>
 </head>
 <body>
-  
-    <?php 
-    $servername = "localhost";
-    $username = "root";
-    $password "";
-    $database = "futactic";
-    // establiching connection with DB
-    $connection = new mysali($servername, $username, $password, $database)
-    if ($connection -> connection_error) {
-        die("connection failed: ". $connection->connection_error);
-    }
-
-    // read all rows from DB table 
-    $sql = "SELECT * FROM players";
-
-    ?>
 
 <div class="bg-[#F2F1E9] flex justify-between items-center py-4 px-6 shadow-sm border-b border-[#E2DDCC]">
     <div>
@@ -64,27 +48,48 @@
                         <tr>
                             <th class="px-4 py-3 text-left text-xs font-medium text-[#BD5D3A] uppercase tracking-wider">ID</th>
                             <th class="px-4 py-3 text-left text-xs font-medium text-[#BD5D3A] uppercase tracking-wider">Name</th>
-                            <th class="px-4 py-3 text-left text-xs font-medium text-[#BD5D3A] uppercase tracking-wider">Email</th>
-                            <th class="px-4 py-3 text-left text-xs font-medium text-[#BD5D3A] uppercase tracking-wider">Phone</th>
-                            <th class="px-4 py-3 text-left text-xs font-medium text-[#BD5D3A] uppercase tracking-wider">Address</th>
-                            <th class="px-4 py-3 text-left text-xs font-medium text-[#BD5D3A] uppercase tracking-wider">Created At</th>
-                            <th class="px-4 py-3 text-left text-xs font-medium text-[#BD5D3A] uppercase tracking-wider">Action</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-[#BD5D3A] uppercase tracking-wider">Photo</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-[#BD5D3A] uppercase tracking-wider">Nationality</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-[#BD5D3A] uppercase tracking-wider">Club</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-[#BD5D3A] uppercase tracking-wider">Statistics</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-[#BD5D3A] uppercase tracking-wider">Position</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-[#E2DDCC]">
-                        <tr class="hover:bg-[#E2DDCC]/20 transition-colors duration-200">
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900">10</td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900">Brahim Dyaz</td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900">dyazz@gmail.com</td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900">0666783278</td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900">New York, USA</td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900">13/05/2022</td>
-                            <td class="px-4 py-4 whitespace-nowrap text-sm font-medium">
-                                <a href="/FUTactic_Frontend/edit_player.php" class="text-[#BD5D3A] hover:text-opacity-80 mr-3 transition-colors duration-200">Edit</a>
-                                <a href="/FUTactic_Frontend/delete_player.php" class="text-[#BD5D3A] hover:text-opacity-80 transition-colors duration-200">Delete</a>
-                            </td>
-                        </tr>
-                        <!-- You can add more rows here following the same pattern -->
+
+                        <?php 
+                            require_once './includes/db_connection.php';
+
+                            // read all rows from DB table 
+                            $sql = "SELECT * FROM players
+                            JOIN clubs ON players.club_id = clubs.club_id
+                            JOIN nationalities on players.nationality_id = nationalities.nationality_id;
+                            ";
+                            $result = $conn->query($sql);
+
+                            //read data from the table
+                            while ($row = $result->fetch_assoc()) {
+                                echo"
+                                <tr>
+                                    <td>$row[player_id]</td>
+                                    <td>$row[player_name]</td>
+                                    <td><img src='$row[photo]' height='30' width='50'></td>
+                                    <td><img src='$row[nationality_flag]' height='30' width='50'></td>
+                                    <td><img src='$row[club_logo]' height='30' width='50'></td>
+                                    <td>$row[statistics_id]</td>
+                                    <td>$row[name]</td>
+                                    <td>
+                                        <a href='/FUTactic_Frontend/edit_player.php?id=$row[player_id]' class='text-[#BD5D3A] hover:text-opacity-80 mr-3 transition-colors duration-200'>Edit</a>
+                                        <a href='/FUTactic_Frontend/delete_player.php?id=$row[player_id]' class='text-[#BD5D3A] hover:text-opacity-80 mr-3 transition-colors duration-200'>Edit</a>
+                                    </td>
+                            
+                                </tr>
+                                ";
+                            }
+                        
+                        
+                        ?>
+
                     </tbody>
                 </table>
                 
