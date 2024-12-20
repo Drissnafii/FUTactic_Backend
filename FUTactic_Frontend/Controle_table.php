@@ -63,7 +63,9 @@
                             // read all rows from DB table 
                             $sql = "SELECT * FROM players
                             JOIN clubs ON players.club_id = clubs.club_id
-                            JOIN nationalities on players.nationality_id = nationalities.nationality_id;
+                            JOIN nationalities on players.nationality_id = nationalities.nationality_id
+                            JOIN positions on players.position_id = positions.position_id
+                            LEFT JOIN statistics on players.statistics_id = statistics.statistics_id
                             ";
                             $result = $conn->query($sql);
 
@@ -73,16 +75,15 @@
                                 <tr>
                                     <td>$row[player_id]</td>
                                     <td>$row[player_name]</td>
-                                    <td><img src='$row[photo]' height='30' width='50'></td>
+                                    <td><img src='$row[player_photo]' height='30' width='50'></td>
                                     <td><img src='$row[nationality_flag]' height='30' width='50'></td>
                                     <td><img src='$row[club_logo]' height='30' width='50'></td>
                                     <td>$row[statistics_id]</td>
-                                    <td>$row[name]</td>
+                                    <td>$row[position_name]</td>
                                     <td>
                                         <a href='/FUTactic_Frontend/edit_player.php?id=$row[player_id]' class='text-[#BD5D3A] hover:text-opacity-80 mr-3 transition-colors duration-200'>Edit</a>
-                                        <a href='/FUTactic_Frontend/delete_player.php?id=$row[player_id]' class='text-[#BD5D3A] hover:text-opacity-80 mr-3 transition-colors duration-200'>Edit</a>
+                                        <a href='/FUTactic_Frontend/delete_player.php?id=$row[player_id]' class='text-[#BD5D3A] hover:text-opacity-80 mr-3 transition-colors duration-200'>Delete</a>
                                     </td>
-                            
                                 </tr>
                                 ";
                             }
