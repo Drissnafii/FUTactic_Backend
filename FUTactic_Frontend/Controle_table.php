@@ -65,14 +65,14 @@
                             JOIN clubs ON players.club_id = clubs.club_id
                             JOIN nationalities on players.nationality_id = nationalities.nationality_id
                             JOIN positions on players.position_id = positions.position_id
-                            LEFT JOIN statistics on players.statistics_id = statistics.statistics_id
+                            JOIN statistics on players.statistics_id = statistics.statistics_id
                             ";
                             $result = $conn->query($sql);
 
                             //read data from the table
                             while ($row = $result->fetch_assoc()) {
                                 echo"
-                                <tr>
+                                <tr class='hover:bg-[#E2DDCC]/20 transition-colors duration-200' >
                                     <td>$row[player_id]</td>
                                     <td>$row[player_name]</td>
                                     <td><img src='$row[player_photo]' height='30' width='50'></td>
@@ -81,8 +81,8 @@
                                     <td>$row[statistics_id]</td>
                                     <td>$row[position_name]</td>
                                     <td>
-                                        <a href='/FUTactic_Frontend/edit_player.php?id=$row[player_id]' class='text-[#BD5D3A] hover:text-opacity-80 mr-3 transition-colors duration-200'>Edit</a>
-                                        <a href='/FUTactic_Frontend/delete_player.php?id=$row[player_id]' class='text-[#BD5D3A] hover:text-opacity-80 mr-3 transition-colors duration-200'>Delete</a>
+                                        <a href='edit_page.php?id=$row[player_id]' class='text-[#BD5D3A] hover:text-opacity-80 mr-3 transition-colors duration-200'>Edit</a>
+                                        <a href='delete_page.php?id=$row[player_id]' class='text-[#BD5D3A] hover:text-opacity-80 mr-3 transition-colors duration-200'>Delete</a>
                                     </td>
                                 </tr>
                                 ";

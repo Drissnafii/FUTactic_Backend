@@ -40,79 +40,140 @@
     </button>
 </div>
 
-    <div class="form-container">
-        <h2 class="form-title">Ajouter un Nouveau Joueur</h2>
-        
-        <form class="player-form" action="add_player.php" method="post">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="name">Nom du Joueur</label>
-                    <input type="text" id="name" name="name" required placeholder="Ex: Lionel Messi">
-                </div>
-                <div class="form-group">
-                    <label for="club">Club</label>
-                    <input type="text" id="club" name="club" required placeholder="Ex: Inter Miami">
-                </div>
-            </div>
+<div class="form-container bg-[#F2F1E9] rounded-lg p-6 mt-6">
+    <h2 class="text-[#BD5D3A] font-semibold text-lg text-center mb-6">Ajouter un Nouveau Joueur</h2>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="nationality">Nationalité</label>
-                    <input type="text" id="nationality" name="nationality" required placeholder="Ex: Argentine">
-                </div>
-                <div class="form-group">
-                    <label for="position">Position</label>
-                    <select id="position" name="position" required>
-                        <option value="">Sélectionner Position</option>
-                        <option value="GK">Gardien</option>
-                        <option value="RW">Ailier Droit</option>
-                        <option value="LW">Ailier Gauche</option>
-                        <option value="ST">Attaquant</option>
-                        <option value="CM">Milieu</option>
-                        <option value="CB">Défenseur Central</option>
+    <form class="player-form" action="add_player.php" method="post" enctype="multipart/form-data">
+        <div class="form-row">
+             <div class="form-group">
+                <label for="name" class="block text-sm font-medium text-[#BD5D3A] mb-2">Nom du Joueur</label>
+                <input type="text" id="name" name="name" required placeholder="Ex: Lionel Messi"
+                       class="w-full p-2 border border-[#E2DDCC] rounded-md focus:ring-2 focus:ring-[#BD5D3A] focus:border-transparent">
+            </div>
+             <div class="form-group">
+                <label for="photo" class="block text-sm font-medium text-[#BD5D3A] mb-2">Photo du Joueur</label>
+                <input type="file" id="photo" name="photo" accept="image/*" 
+                       class="w-full p-2 border border-[#E2DDCC] rounded-md focus:ring-2 focus:ring-[#BD5D3A] focus:border-transparent">
+           </div>
+        </div>
+        <div class="form-row">
+              <div class="form-group">
+                <label for="nationality" class="block text-sm font-medium text-[#BD5D3A] mb-2">Nationalité</label>
+                     <select name="nationality_id" id="nationality"
+                           class="w-full p-2 border border-[#E2DDCC] rounded-md focus:ring-2 focus:ring-[#BD5D3A] focus:border-transparent">
+                          <option value="">Sélectionner Nationalité</option>
+                        <?php
+                            include './includes/db_connection.php';
+                            $sql = "SELECT nationality_id, nationality_name FROM nationalities";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<option value='" . $row['nationality_id']. "'>" . $row['nationality_name']. "</option>";
+                                }
+                            }
+                            $conn-> close();
+                        ?>
                     </select>
-                </div>
             </div>
+              <div class="form-group">
+                <label for="position" class="block text-sm font-medium text-[#BD5D3A] mb-2">Position</label>
+                 <select id="position" name="position_id" required
+                           class="w-full p-2 border border-[#E2DDCC] rounded-md focus:ring-2 focus:ring-[#BD5D3A] focus:border-transparent">
+                        <option value="">Sélectionner Position</option>
+                        <?php
+                           include './includes/db_connection.php';
+                           $sql = "SELECT position_id, position_name FROM positions";
+                           $result = $conn->query($sql);
+                           if ($result->num_rows > 0) {
+                               while ($row = $result->fetch_assoc()) {
+                                   echo "<option value='" . $row['position_id']. "'>" . $row['position_name']. "</option>";
+                               }
+                           }
+                           $conn-> close();
+                        ?>
+                    </select>
+             </div>
+        </div>
+         <div class="form-row">
+            <div class="form-group">
+                <label for="club" class="block text-sm font-medium text-[#BD5D3A] mb-2">Club</label>
+                <select id="club" name="club_id" required
+                      class="w-full p-2 border border-[#E2DDCC] rounded-md focus:ring-2 focus:ring-[#BD5D3A] focus:border-transparent">
+                       <option value="">Sélectionner Club</option>
+                        <?php
+                         include './includes/db_connection.php';
+                         $sql = "SELECT club_id, club_name FROM clubs";
+                         $result = $conn->query($sql);
+                         if ($result->num_rows > 0) {
+                             while ($row = $result->fetch_assoc()) {
+                                  echo "<option value='" . $row['club_id']. "'>" . $row['club_name']. "</option>";
+                             }
+                         }
+                        $conn-> close();
+                       ?>
+                 </select>
+             </div>
+            <div class="form-group">
+                <label for="status" class="block text-sm font-medium text-[#BD5D3A] mb-2">Statistics</label>
+                <select id="status" name="statistics_id" required
+                       class="w-full p-2 border border-[#E2DDCC] rounded-md focus:ring-2 focus:ring-[#BD5D3A] focus:border-transparent">
+                    <option value="">Sélectionner Statistiques</option>
+                    <?php
+                         include './includes/db_connection.php';
+                         $sql = "SELECT statistics_id FROM statistics";
+                         $result = $conn->query($sql);
+                         if ($result->num_rows > 0) {
+                             while ($row = $result->fetch_assoc()) {
+                                 echo "<option value='" . $row['statistics_id']. "'>" . $row['statistics_id']. "</option>";
+                                }
+                            }
+                         $conn-> close();
+                    ?>
+                 </select>
+           </div>
+      </div>
 
-            <div class="stats-section">
-                <h3 style="
-                text-align: center;
-                margin: revert;
-                background-color: wheat;
-            ">Statistiques du Joueur</h3>
-                    <div class="stats-row">
-                    <div class="form-group">
-                        <label for="rating">Note Générale</label>
-                        <input type="number" id="rating" name="rating" min="1" max="99" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="pace">Vitesse</label>
-                        <input type="number" id="pace" name="pace" min="1" max="99" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="shooting">Tir</label>
-                        <input type="number" id="shooting" name="shooting" min="1" max="99" required>
-                    </div>
-                </div>
-                <div class="stats-row">
-                    <div class="form-group">
-                        <label for="passing">Passe</label>
-                        <input type="number" id="passing" name="passing" min="1" max="99" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="dribbling">Dribble</label>
-                        <input type="number" id="dribbling" name="dribbling" min="1" max="99" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="defending">Défense</label>
-                        <input type="number" id="defending" name="defending" min="1" max="99" required>
-                    </div>
-                </div>
+        <div class="stats-section">
+            <h3 class="text-[#BD5D3A] font-semibold text-lg text-center mb-6">Statistiques du Joueur</h3>
+            <div class="stats-row">
+               <div class="form-group">
+                    <label for="rating" class="block text-sm font-medium text-[#BD5D3A] mb-2">Note Générale</label>
+                    <input type="number" id="rating" name="rating" min="1" max="99" required
+                           class="w-full p-2 border border-[#E2DDCC] rounded-md focus:ring-2 focus:ring-[#BD5D3A] focus:border-transparent">
+               </div>
+               <div class="form-group">
+                   <label for="pace" class="block text-sm font-medium text-[#BD5D3A] mb-2">Vitesse</label>
+                   <input type="number" id="pace" name="pace" min="1" max="99" required
+                          class="w-full p-2 border border-[#E2DDCC] rounded-md focus:ring-2 focus:ring-[#BD5D3A] focus:border-transparent">
+               </div>
+                 <div class="form-group">
+                    <label for="shooting" class="block text-sm font-medium text-[#BD5D3A] mb-2">Tir</label>
+                     <input type="number" id="shooting" name="shooting" min="1" max="99" required
+                          class="w-full p-2 border border-[#E2DDCC] rounded-md focus:ring-2 focus:ring-[#BD5D3A] focus:border-transparent">
+                 </div>
             </div>
+            <div class="stats-row">
+                <div class="form-group">
+                    <label for="passing" class="block text-sm font-medium text-[#BD5D3A] mb-2">Passe</label>
+                    <input type="number" id="passing" name="passing" min="1" max="99" required
+                           class="w-full p-2 border border-[#E2DDCC] rounded-md focus:ring-2 focus:ring-[#BD5D3A] focus:border-transparent">
+                </div>
+                <div class="form-group">
+                    <label for="dribbling" class="block text-sm font-medium text-[#BD5D3A] mb-2">Dribble</label>
+                     <input type="number" id="dribbling" name="dribbling" min="1" max="99" required
+                            class="w-full p-2 border border-[#E2DDCC] rounded-md focus:ring-2 focus:ring-[#BD5D3A] focus:border-transparent">
+                 </div>
+               <div class="form-group">
+                    <label for="defending" class="block text-sm font-medium text-[#BD5D3A] mb-2">Défense</label>
+                    <input type="number" id="defending" name="defending" min="1" max="99" required
+                           class="w-full p-2 border border-[#E2DDCC] rounded-md focus:ring-2 focus:ring-[#BD5D3A] focus:border-transparent">
+                </div>
+             </div>
+       </div>
 
-            <button type="submit" class="submit-btn">Ajouter le Joueur</button>
-        </form>
-    </div>
+        <button type="submit" class="bg-[#BD5D3A] text-white px-6 py-2 rounded-md hover:bg-opacity-90 transition-colors duration-200">Ajouter le Joueur</button>
+    </form>
+</div>
 
     <!-- back button  -->
     <div id="logoutButton">
