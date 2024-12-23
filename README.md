@@ -15,7 +15,8 @@ This project is a robust backend system for managing a dynamic and interactive *
 ## 🔗 Links  
 
 - **📁 GitHub Repository:** [here](https://github.com/Drissnafii/FUTactic_Backend.git)  
-- **📋 Jira Task Planning:** [here](https://drissnafi3.atlassian.net/jira/software/projects/FB/boards/5?sprintStarted=true&atlOrigin=eyJpIjoiNGVhNmE1NTgxZDI0NDg5NDgyNzRiNmQ0Y2VjYTcyMDgiLCJwIjoiaiJ9)  
+- **📋 Jira Task Planning:** [here](https://drissnafi3.atlassian.net/jira/software/projects/FB/boards/5?sprintStarted=true&atlOrigin=eyJpIjoiNGVhNmE1NTgxZDI0NDg5NDgyNzRiNmQ0Y2VjYTcyMDgiLCJwIjoiaiJ9)
+- **Presentation:** [here](https://www.canva.com/design/DAGaIW_Anec/7BzR_CMHrKHrFOthhepdSg/edit?utm_content=DAGaIW_Anec&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ---
 
