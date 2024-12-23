@@ -8,8 +8,7 @@ This project is a robust backend system for managing a dynamic and interactive *
 
 - **Content Management:** Add, modify, delete, and list players, teams, nationalities, and other related entities.  
 - **Team Management:** Create and manage teams, including assigning and unassigning players.  
-- **Internationalization:** Supports multiple languages (currently French and English).  
-- **AdminLTE Integration:** Integrated with an AdminLTE-based frontend for a seamless and user-friendly interface.  
+- **Internationalization:** Supports multiple languages (currently French and English).
 
 ---
 
@@ -23,29 +22,4 @@ This project is a robust backend system for managing a dynamic and interactive *
 ## 🛠️ Technologies Used  
 
 - **💻 PHP (Procedural):** Backend logic and data processing.  
-- **📂 MySQLi:** Database management and interaction.  
-- **🎨 AdminLTE:** Frontend template for the dashboard and user interface.  
-
----
-
-## 🚀 Getting Started  
-
-### 1. 🖥️ Clone the repository:  
-```bash
-git clone https://github.com/Drissnafii/FUTactic_Backend.git
-```
-
-### 2. 🗄️ Database Setup:  
-- 🛠️ Create a new MySQL database.  
-- 📥 Import the database schema provided in the repository (`schema.sql` file).  
-- 📝 Update database credentials in `config/database.php`.  
-
-### 3. ▶️ Start the project:  
-- Navigate to the project directory:  
-```bash
-cd FUTactic_Backend
-```  
-- Start a local PHP server:  
-```bash
-php -S localhost:8000
-```
+- **📂 MySQLi:** Database management and interaction.
